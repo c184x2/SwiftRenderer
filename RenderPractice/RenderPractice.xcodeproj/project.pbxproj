@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A91A0F132B89F7A100A38B9E /* Futuristic_Car_2.1_obj.obj in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F0C2B89F7A100A38B9E /* Futuristic_Car_2.1_obj.obj */; };
+		A91A0F142B89F7A100A38B9E /* Futuristic_Car_2.1_mtl.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F0D2B89F7A100A38B9E /* Futuristic_Car_2.1_mtl.mtl */; };
+		A91A0F152B89F7A100A38B9E /* Futuristic_Car_N.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F0F2B89F7A100A38B9E /* Futuristic_Car_N.jpg */; };
+		A91A0F162B89F7A100A38B9E /* Futuristic_Car_S.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F102B89F7A100A38B9E /* Futuristic_Car_S.jpg */; };
+		A91A0F172B89F7A100A38B9E /* Futuristic_Car_C.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F112B89F7A100A38B9E /* Futuristic_Car_C.jpg */; };
+		A91A0F182B89F7A100A38B9E /* REF 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F122B89F7A100A38B9E /* REF 1.jpg */; };
+		A91A0F1B2B8A266600A38B9E /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F192B8A266600A38B9E /* cube.obj */; };
+		A91A0F1C2B8A266600A38B9E /* cube.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F1A2B8A266600A38B9E /* cube.mtl */; };
+		A91A0F1F2B8A2B7F00A38B9E /* farmhouse_obj.obj in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F1D2B8A2B7F00A38B9E /* farmhouse_obj.obj */; };
+		A91A0F202B8A2B7F00A38B9E /* farmhouse_obj.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F1E2B8A2B7F00A38B9E /* farmhouse_obj.mtl */; };
+		A92D820A2B77B0C0003675BB /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92D82092B77B0C0003675BB /* MetalView.swift */; };
+		A92D82142B77BD24003675BB /* Spaceship.obj in Resources */ = {isa = PBXBuildFile; fileRef = A92D82132B77BD24003675BB /* Spaceship.obj */; };
+		A92D82172B79607B003675BB /* Textures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92D82162B79607B003675BB /* Textures.xcassets */; };
+		A93705F62B6EDA7300D2D011 /* RenderPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93705F52B6EDA7300D2D011 /* RenderPracticeApp.swift */; };
+		A93705F82B6EDA7300D2D011 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93705F72B6EDA7300D2D011 /* ContentView.swift */; };
+		A93705FA2B6EDA7700D2D011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93705F92B6EDA7700D2D011 /* Assets.xcassets */; };
+		A93705FD2B6EDA7700D2D011 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93705FC2B6EDA7700D2D011 /* Preview Assets.xcassets */; };
+		A93706052B6EDA9D00D2D011 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93706042B6EDA9D00D2D011 /* Renderer.swift */; };
+		A937060D2B6EDBE500D2D011 /* VertexDesrciptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937060C2B6EDBE500D2D011 /* VertexDesrciptor.swift */; };
+		A937060F2B6EDBFA00D2D011 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937060E2B6EDBFA00D2D011 /* Model.swift */; };
+		A93706112B6EDC0700D2D011 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93706102B6EDC0700D2D011 /* Transform.swift */; };
+		A93706142B6F95B100D2D011 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93706132B6F95B100D2D011 /* MathLibrary.swift */; };
+		A93706172B6FC8C000D2D011 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = A93706162B6FC8C000D2D011 /* Shader.metal */; };
+		A97540E82B82561E00E98145 /* lowpoly-house.obj in Resources */ = {isa = PBXBuildFile; fileRef = A97540E62B82561E00E98145 /* lowpoly-house.obj */; };
+		A97540E92B82561E00E98145 /* lowpoly-house.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A97540E72B82561E00E98145 /* lowpoly-house.mtl */; };
+		A97540ED2B825ADC00E98145 /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97540EC2B825ADC00E98145 /* Lighting.swift */; };
+		A97540F02B825D4F00E98145 /* Lighting.metal in Sources */ = {isa = PBXBuildFile; fileRef = A97540EF2B825D4E00E98145 /* Lighting.metal */; };
+		A993614B2B8211DC00867E50 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993614A2B8211DC00867E50 /* Scene.swift */; };
+		A994F4B32B7FE8DA005AB8CA /* Spaceship.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A994F4B22B7FE8DA005AB8CA /* Spaceship.mtl */; };
+		A994F4B62B7FEBE9005AB8CA /* UFO.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A994F4B42B7FEBE8005AB8CA /* UFO.mtl */; };
+		A994F4B72B7FEBE9005AB8CA /* UFO.obj in Resources */ = {isa = PBXBuildFile; fileRef = A994F4B52B7FEBE8005AB8CA /* UFO.obj */; };
+		A994F4BA2B800394005AB8CA /* Inputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A994F4B92B800394005AB8CA /* Inputs.swift */; };
+		A994F4BC2B800510005AB8CA /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A994F4BB2B800510005AB8CA /* Camera.swift */; };
+		A994F4C12B80FD07005AB8CA /* plane.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A994F4BF2B80FD07005AB8CA /* plane.mtl */; };
+		A994F4C22B80FD07005AB8CA /* plane.obj in Resources */ = {isa = PBXBuildFile; fileRef = A994F4C02B80FD07005AB8CA /* plane.obj */; };
+		A994F4C42B811FA1005AB8CA /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A994F4C32B811FA1005AB8CA /* Textures.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A91A0F0C2B89F7A100A38B9E /* Futuristic_Car_2.1_obj.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Futuristic_Car_2.1_obj.obj; sourceTree = "<group>"; };
+		A91A0F0D2B89F7A100A38B9E /* Futuristic_Car_2.1_mtl.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Futuristic_Car_2.1_mtl.mtl; sourceTree = "<group>"; };
+		A91A0F0F2B89F7A100A38B9E /* Futuristic_Car_N.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Futuristic_Car_N.jpg; sourceTree = "<group>"; };
+		A91A0F102B89F7A100A38B9E /* Futuristic_Car_S.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Futuristic_Car_S.jpg; sourceTree = "<group>"; };
+		A91A0F112B89F7A100A38B9E /* Futuristic_Car_C.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Futuristic_Car_C.jpg; sourceTree = "<group>"; };
+		A91A0F122B89F7A100A38B9E /* REF 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "REF 1.jpg"; sourceTree = "<group>"; };
+		A91A0F192B8A266600A38B9E /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cube.obj; path = "../../../Metal by example/Chapter 11/final/Materials/Shared/Models/Cube/cube.obj"; sourceTree = "<group>"; };
+		A91A0F1A2B8A266600A38B9E /* cube.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cube.mtl; path = "../../../Metal by example/Chapter 11/final/Materials/Shared/Models/Cube/cube.mtl"; sourceTree = "<group>"; };
+		A91A0F1D2B8A2B7F00A38B9E /* farmhouse_obj.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = farmhouse_obj.obj; sourceTree = "<group>"; };
+		A91A0F1E2B8A2B7F00A38B9E /* farmhouse_obj.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = farmhouse_obj.mtl; sourceTree = "<group>"; };
+		A92D82092B77B0C0003675BB /* MetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		A92D82132B77BD24003675BB /* Spaceship.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Spaceship.obj; sourceTree = "<group>"; };
+		A92D82152B78E25E003675BB /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		A92D82162B79607B003675BB /* Textures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Textures.xcassets; sourceTree = "<group>"; };
+		A93705F22B6EDA7300D2D011 /* RenderPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenderPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A93705F52B6EDA7300D2D011 /* RenderPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderPracticeApp.swift; sourceTree = "<group>"; };
+		A93705F72B6EDA7300D2D011 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A93705F92B6EDA7700D2D011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A93705FC2B6EDA7700D2D011 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A93705FE2B6EDA7700D2D011 /* RenderPractice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RenderPractice.entitlements; sourceTree = "<group>"; };
+		A93706042B6EDA9D00D2D011 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		A937060C2B6EDBE500D2D011 /* VertexDesrciptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexDesrciptor.swift; sourceTree = "<group>"; };
+		A937060E2B6EDBFA00D2D011 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A93706102B6EDC0700D2D011 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		A93706132B6F95B100D2D011 /* MathLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathLibrary.swift; sourceTree = "<group>"; };
+		A93706162B6FC8C000D2D011 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
+		A97540E62B82561E00E98145 /* lowpoly-house.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lowpoly-house.obj"; sourceTree = "<group>"; };
+		A97540E72B82561E00E98145 /* lowpoly-house.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lowpoly-house.mtl"; sourceTree = "<group>"; };
+		A97540EC2B825ADC00E98145 /* Lighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lighting.swift; sourceTree = "<group>"; };
+		A97540EE2B825D4400E98145 /* Lighting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lighting.h; sourceTree = "<group>"; };
+		A97540EF2B825D4E00E98145 /* Lighting.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Lighting.metal; sourceTree = "<group>"; };
+		A993614A2B8211DC00867E50 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		A994F4B22B7FE8DA005AB8CA /* Spaceship.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Spaceship.mtl; sourceTree = "<group>"; };
+		A994F4B42B7FEBE8005AB8CA /* UFO.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UFO.mtl; sourceTree = "<group>"; };
+		A994F4B52B7FEBE8005AB8CA /* UFO.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UFO.obj; sourceTree = "<group>"; };
+		A994F4B92B800394005AB8CA /* Inputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputs.swift; sourceTree = "<group>"; };
+		A994F4BB2B800510005AB8CA /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		A994F4BF2B80FD07005AB8CA /* plane.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane.mtl; sourceTree = "<group>"; };
+		A994F4C02B80FD07005AB8CA /* plane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane.obj; sourceTree = "<group>"; };
+		A994F4C32B811FA1005AB8CA /* Textures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textures.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A93705EF2B6EDA7300D2D011 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A91A0F0E2B89F7A100A38B9E /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				A91A0F0F2B89F7A100A38B9E /* Futuristic_Car_N.jpg */,
+				A91A0F102B89F7A100A38B9E /* Futuristic_Car_S.jpg */,
+				A91A0F112B89F7A100A38B9E /* Futuristic_Car_C.jpg */,
+				A91A0F122B89F7A100A38B9E /* REF 1.jpg */,
+			);
+			path = textures;
+			sourceTree = "<group>";
+		};
+		A93705E92B6EDA7300D2D011 = {
+			isa = PBXGroup;
+			children = (
+				A93705F42B6EDA7300D2D011 /* RenderPractice */,
+				A93705F32B6EDA7300D2D011 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A93705F32B6EDA7300D2D011 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A93705F22B6EDA7300D2D011 /* RenderPractice.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A93705F42B6EDA7300D2D011 /* RenderPractice */ = {
+			isa = PBXGroup;
+			children = (
+				A93705F52B6EDA7300D2D011 /* RenderPracticeApp.swift */,
+				A93706042B6EDA9D00D2D011 /* Renderer.swift */,
+				A993614A2B8211DC00867E50 /* Scene.swift */,
+				A97540EC2B825ADC00E98145 /* Lighting.swift */,
+				A93705FE2B6EDA7700D2D011 /* RenderPractice.entitlements */,
+				A93705F92B6EDA7700D2D011 /* Assets.xcassets */,
+				A994F4C52B814070005AB8CA /* Views */,
+				A994F4B82B80037E005AB8CA /* Input */,
+				A93706152B6FC8A600D2D011 /* Shaders */,
+				A937060B2B6EDBCE00D2D011 /* Geometry */,
+				A93706122B6F95B100D2D011 /* Utility */,
+				A93706062B6EDB6700D2D011 /* Models */,
+				A93705FB2B6EDA7700D2D011 /* Preview Content */,
+			);
+			path = RenderPractice;
+			sourceTree = "<group>";
+		};
+		A93705FB2B6EDA7700D2D011 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A93705FC2B6EDA7700D2D011 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A93706062B6EDB6700D2D011 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A91A0F1E2B8A2B7F00A38B9E /* farmhouse_obj.mtl */,
+				A91A0F1D2B8A2B7F00A38B9E /* farmhouse_obj.obj */,
+				A91A0F0D2B89F7A100A38B9E /* Futuristic_Car_2.1_mtl.mtl */,
+				A91A0F0C2B89F7A100A38B9E /* Futuristic_Car_2.1_obj.obj */,
+				A91A0F1A2B8A266600A38B9E /* cube.mtl */,
+				A91A0F192B8A266600A38B9E /* cube.obj */,
+				A91A0F0E2B89F7A100A38B9E /* textures */,
+				A97540E72B82561E00E98145 /* lowpoly-house.mtl */,
+				A97540E62B82561E00E98145 /* lowpoly-house.obj */,
+				A994F4BF2B80FD07005AB8CA /* plane.mtl */,
+				A994F4C02B80FD07005AB8CA /* plane.obj */,
+				A994F4B42B7FEBE8005AB8CA /* UFO.mtl */,
+				A994F4B52B7FEBE8005AB8CA /* UFO.obj */,
+				A92D82132B77BD24003675BB /* Spaceship.obj */,
+				A994F4B22B7FE8DA005AB8CA /* Spaceship.mtl */,
+				A92D82162B79607B003675BB /* Textures.xcassets */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A937060B2B6EDBCE00D2D011 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				A937060C2B6EDBE500D2D011 /* VertexDesrciptor.swift */,
+				A937060E2B6EDBFA00D2D011 /* Model.swift */,
+				A994F4C32B811FA1005AB8CA /* Textures.swift */,
+			);
+			path = Geometry;
+			sourceTree = "<group>";
+		};
+		A93706122B6F95B100D2D011 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A93706132B6F95B100D2D011 /* MathLibrary.swift */,
+				A93706102B6EDC0700D2D011 /* Transform.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		A93706152B6FC8A600D2D011 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				A92D82152B78E25E003675BB /* Common.h */,
+				A97540EE2B825D4400E98145 /* Lighting.h */,
+				A97540EF2B825D4E00E98145 /* Lighting.metal */,
+				A93706162B6FC8C000D2D011 /* Shader.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		A994F4B82B80037E005AB8CA /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				A994F4B92B800394005AB8CA /* Inputs.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		A994F4C52B814070005AB8CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A93705F72B6EDA7300D2D011 /* ContentView.swift */,
+				A92D82092B77B0C0003675BB /* MetalView.swift */,
+				A994F4BB2B800510005AB8CA /* Camera.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A93705F12B6EDA7300D2D011 /* RenderPractice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A93706012B6EDA7700D2D011 /* Build configuration list for PBXNativeTarget "RenderPractice" */;
+			buildPhases = (
+				A93705EE2B6EDA7300D2D011 /* Sources */,
+				A93705EF2B6EDA7300D2D011 /* Frameworks */,
+				A93705F02B6EDA7300D2D011 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RenderPractice;
+			productName = RenderPractice;
+			productReference = A93705F22B6EDA7300D2D011 /* RenderPractice.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A93705EA2B6EDA7300D2D011 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A93705F12B6EDA7300D2D011 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A93705ED2B6EDA7300D2D011 /* Build configuration list for PBXProject "RenderPractice" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A93705E92B6EDA7300D2D011;
+			productRefGroup = A93705F32B6EDA7300D2D011 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A93705F12B6EDA7300D2D011 /* RenderPractice */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A93705F02B6EDA7300D2D011 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A97540E82B82561E00E98145 /* lowpoly-house.obj in Resources */,
+				A91A0F202B8A2B7F00A38B9E /* farmhouse_obj.mtl in Resources */,
+				A994F4C12B80FD07005AB8CA /* plane.mtl in Resources */,
+				A92D82172B79607B003675BB /* Textures.xcassets in Resources */,
+				A93705FD2B6EDA7700D2D011 /* Preview Assets.xcassets in Resources */,
+				A91A0F132B89F7A100A38B9E /* Futuristic_Car_2.1_obj.obj in Resources */,
+				A97540E92B82561E00E98145 /* lowpoly-house.mtl in Resources */,
+				A91A0F1B2B8A266600A38B9E /* cube.obj in Resources */,
+				A91A0F142B89F7A100A38B9E /* Futuristic_Car_2.1_mtl.mtl in Resources */,
+				A91A0F182B89F7A100A38B9E /* REF 1.jpg in Resources */,
+				A91A0F162B89F7A100A38B9E /* Futuristic_Car_S.jpg in Resources */,
+				A91A0F1F2B8A2B7F00A38B9E /* farmhouse_obj.obj in Resources */,
+				A994F4B62B7FEBE9005AB8CA /* UFO.mtl in Resources */,
+				A92D82142B77BD24003675BB /* Spaceship.obj in Resources */,
+				A994F4B72B7FEBE9005AB8CA /* UFO.obj in Resources */,
+				A93705FA2B6EDA7700D2D011 /* Assets.xcassets in Resources */,
+				A91A0F172B89F7A100A38B9E /* Futuristic_Car_C.jpg in Resources */,
+				A994F4B32B7FE8DA005AB8CA /* Spaceship.mtl in Resources */,
+				A994F4C22B80FD07005AB8CA /* plane.obj in Resources */,
+				A91A0F152B89F7A100A38B9E /* Futuristic_Car_N.jpg in Resources */,
+				A91A0F1C2B8A266600A38B9E /* cube.mtl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A93705EE2B6EDA7300D2D011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A994F4BC2B800510005AB8CA /* Camera.swift in Sources */,
+				A97540ED2B825ADC00E98145 /* Lighting.swift in Sources */,
+				A937060F2B6EDBFA00D2D011 /* Model.swift in Sources */,
+				A93706142B6F95B100D2D011 /* MathLibrary.swift in Sources */,
+				A93705F82B6EDA7300D2D011 /* ContentView.swift in Sources */,
+				A993614B2B8211DC00867E50 /* Scene.swift in Sources */,
+				A97540F02B825D4F00E98145 /* Lighting.metal in Sources */,
+				A93706052B6EDA9D00D2D011 /* Renderer.swift in Sources */,
+				A994F4C42B811FA1005AB8CA /* Textures.swift in Sources */,
+				A994F4BA2B800394005AB8CA /* Inputs.swift in Sources */,
+				A93706172B6FC8C000D2D011 /* Shader.metal in Sources */,
+				A937060D2B6EDBE500D2D011 /* VertexDesrciptor.swift in Sources */,
+				A92D820A2B77B0C0003675BB /* MetalView.swift in Sources */,
+				A93706112B6EDC0700D2D011 /* Transform.swift in Sources */,
+				A93705F62B6EDA7300D2D011 /* RenderPracticeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A93705FF2B6EDA7700D2D011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A93706002B6EDA7700D2D011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A93706022B6EDA7700D2D011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RenderPractice/RenderPractice.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RenderPractice/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.RenderPractice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = RenderPractice/Shaders/Common.h;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A93706032B6EDA7700D2D011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RenderPractice/RenderPractice.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RenderPractice/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.RenderPractice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = RenderPractice/Shaders/Common.h;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A93705ED2B6EDA7300D2D011 /* Build configuration list for PBXProject "RenderPractice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A93705FF2B6EDA7700D2D011 /* Debug */,
+				A93706002B6EDA7700D2D011 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A93706012B6EDA7700D2D011 /* Build configuration list for PBXNativeTarget "RenderPractice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A93706022B6EDA7700D2D011 /* Debug */,
+				A93706032B6EDA7700D2D011 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A93705EA2B6EDA7300D2D011 /* Project object */;
+}
