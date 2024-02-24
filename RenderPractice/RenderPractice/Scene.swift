@@ -37,12 +37,22 @@ class MyScene {
         return model
     }()
     
-    lazy var farmhouse: Model = {
+    /*lazy var farmhouse: Model = {
         let model = Model(name: "farmhouse_obj",
                           transform: Transform(position: float3(-5, 0, 5), scale: 0.2),
                           tiling: 1)
         model.BindTexture(textureName: "Farmhouse Texture", materialType: .baseColor)
-        model.BindTexture(textureName: "Farmhouse Texture Bump Map ", materialType: .baseColor)
+        model.BindTexture(textureName: "Farmhouse Texture Bump Map ", materialType: .normal)
+        return model
+    }()*/
+    
+    lazy var cube: Model = {
+        let model = Model(name: "cube",
+                          transform: Transform(position: float3(0, 0, 0), scale: 1.0),
+                          tiling: 1)
+        model.BindTexture(textureName: "cube-color", materialType: .baseColor)
+        model.BindTexture(textureName: "cube-normal", materialType: .normal)
+        model.BindTexture(textureName: "cube-roughness", materialType: .roughness)
         return model
     }()
     
@@ -56,7 +66,8 @@ class MyScene {
         models.append(UFO)
         models.append(ground)
         models.append(house)
-        models.append(farmhouse)
+        //models.append(farmhouse)
+        models.append(cube)
         
         for model in models {
             print("ModelMatrix: \(model.transform.modelMatrix),\(model.tiling) \n")

@@ -13,10 +13,11 @@
 		A91A0F162B89F7A100A38B9E /* Futuristic_Car_S.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F102B89F7A100A38B9E /* Futuristic_Car_S.jpg */; };
 		A91A0F172B89F7A100A38B9E /* Futuristic_Car_C.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F112B89F7A100A38B9E /* Futuristic_Car_C.jpg */; };
 		A91A0F182B89F7A100A38B9E /* REF 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F122B89F7A100A38B9E /* REF 1.jpg */; };
-		A91A0F1B2B8A266600A38B9E /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F192B8A266600A38B9E /* cube.obj */; };
-		A91A0F1C2B8A266600A38B9E /* cube.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F1A2B8A266600A38B9E /* cube.mtl */; };
 		A91A0F1F2B8A2B7F00A38B9E /* farmhouse_obj.obj in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F1D2B8A2B7F00A38B9E /* farmhouse_obj.obj */; };
 		A91A0F202B8A2B7F00A38B9E /* farmhouse_obj.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F1E2B8A2B7F00A38B9E /* farmhouse_obj.mtl */; };
+		A91A0F222B8A51AA00A38B9E /* PBR.metal in Sources */ = {isa = PBXBuildFile; fileRef = A91A0F212B8A51AA00A38B9E /* PBR.metal */; };
+		A91A0F252B8A544400A38B9E /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F232B8A544400A38B9E /* cube.obj */; };
+		A91A0F262B8A544400A38B9E /* cube.mtl in Resources */ = {isa = PBXBuildFile; fileRef = A91A0F242B8A544400A38B9E /* cube.mtl */; };
 		A92D820A2B77B0C0003675BB /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92D82092B77B0C0003675BB /* MetalView.swift */; };
 		A92D82142B77BD24003675BB /* Spaceship.obj in Resources */ = {isa = PBXBuildFile; fileRef = A92D82132B77BD24003675BB /* Spaceship.obj */; };
 		A92D82172B79607B003675BB /* Textures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92D82162B79607B003675BB /* Textures.xcassets */; };
@@ -52,10 +53,11 @@
 		A91A0F102B89F7A100A38B9E /* Futuristic_Car_S.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Futuristic_Car_S.jpg; sourceTree = "<group>"; };
 		A91A0F112B89F7A100A38B9E /* Futuristic_Car_C.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Futuristic_Car_C.jpg; sourceTree = "<group>"; };
 		A91A0F122B89F7A100A38B9E /* REF 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "REF 1.jpg"; sourceTree = "<group>"; };
-		A91A0F192B8A266600A38B9E /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cube.obj; path = "../../../Metal by example/Chapter 11/final/Materials/Shared/Models/Cube/cube.obj"; sourceTree = "<group>"; };
-		A91A0F1A2B8A266600A38B9E /* cube.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cube.mtl; path = "../../../Metal by example/Chapter 11/final/Materials/Shared/Models/Cube/cube.mtl"; sourceTree = "<group>"; };
 		A91A0F1D2B8A2B7F00A38B9E /* farmhouse_obj.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = farmhouse_obj.obj; sourceTree = "<group>"; };
 		A91A0F1E2B8A2B7F00A38B9E /* farmhouse_obj.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = farmhouse_obj.mtl; sourceTree = "<group>"; };
+		A91A0F212B8A51AA00A38B9E /* PBR.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = PBR.metal; sourceTree = "<group>"; };
+		A91A0F232B8A544400A38B9E /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cube.obj; path = "../../../../../Coding/Metal/Metal by example/Chapter 11/final/Materials/Shared/Models/Cube/cube.obj"; sourceTree = "<group>"; };
+		A91A0F242B8A544400A38B9E /* cube.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cube.mtl; path = "../../../../../Coding/Metal/Metal by example/Chapter 11/final/Materials/Shared/Models/Cube/cube.mtl"; sourceTree = "<group>"; };
 		A92D82092B77B0C0003675BB /* MetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		A92D82132B77BD24003675BB /* Spaceship.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Spaceship.obj; sourceTree = "<group>"; };
 		A92D82152B78E25E003675BB /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -157,12 +159,12 @@
 		A93706062B6EDB6700D2D011 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A91A0F242B8A544400A38B9E /* cube.mtl */,
+				A91A0F232B8A544400A38B9E /* cube.obj */,
 				A91A0F1E2B8A2B7F00A38B9E /* farmhouse_obj.mtl */,
 				A91A0F1D2B8A2B7F00A38B9E /* farmhouse_obj.obj */,
 				A91A0F0D2B89F7A100A38B9E /* Futuristic_Car_2.1_mtl.mtl */,
 				A91A0F0C2B89F7A100A38B9E /* Futuristic_Car_2.1_obj.obj */,
-				A91A0F1A2B8A266600A38B9E /* cube.mtl */,
-				A91A0F192B8A266600A38B9E /* cube.obj */,
 				A91A0F0E2B89F7A100A38B9E /* textures */,
 				A97540E72B82561E00E98145 /* lowpoly-house.mtl */,
 				A97540E62B82561E00E98145 /* lowpoly-house.obj */,
@@ -203,6 +205,7 @@
 				A97540EE2B825D4400E98145 /* Lighting.h */,
 				A97540EF2B825D4E00E98145 /* Lighting.metal */,
 				A93706162B6FC8C000D2D011 /* Shader.metal */,
+				A91A0F212B8A51AA00A38B9E /* PBR.metal */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -289,8 +292,8 @@
 				A92D82172B79607B003675BB /* Textures.xcassets in Resources */,
 				A93705FD2B6EDA7700D2D011 /* Preview Assets.xcassets in Resources */,
 				A91A0F132B89F7A100A38B9E /* Futuristic_Car_2.1_obj.obj in Resources */,
+				A91A0F262B8A544400A38B9E /* cube.mtl in Resources */,
 				A97540E92B82561E00E98145 /* lowpoly-house.mtl in Resources */,
-				A91A0F1B2B8A266600A38B9E /* cube.obj in Resources */,
 				A91A0F142B89F7A100A38B9E /* Futuristic_Car_2.1_mtl.mtl in Resources */,
 				A91A0F182B89F7A100A38B9E /* REF 1.jpg in Resources */,
 				A91A0F162B89F7A100A38B9E /* Futuristic_Car_S.jpg in Resources */,
@@ -300,10 +303,10 @@
 				A994F4B72B7FEBE9005AB8CA /* UFO.obj in Resources */,
 				A93705FA2B6EDA7700D2D011 /* Assets.xcassets in Resources */,
 				A91A0F172B89F7A100A38B9E /* Futuristic_Car_C.jpg in Resources */,
+				A91A0F252B8A544400A38B9E /* cube.obj in Resources */,
 				A994F4B32B7FE8DA005AB8CA /* Spaceship.mtl in Resources */,
 				A994F4C22B80FD07005AB8CA /* plane.obj in Resources */,
 				A91A0F152B89F7A100A38B9E /* Futuristic_Car_N.jpg in Resources */,
-				A91A0F1C2B8A266600A38B9E /* cube.mtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +331,7 @@
 				A937060D2B6EDBE500D2D011 /* VertexDesrciptor.swift in Sources */,
 				A92D820A2B77B0C0003675BB /* MetalView.swift in Sources */,
 				A93706112B6EDC0700D2D011 /* Transform.swift in Sources */,
+				A91A0F222B8A51AA00A38B9E /* PBR.metal in Sources */,
 				A93705F62B6EDA7300D2D011 /* RenderPracticeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
