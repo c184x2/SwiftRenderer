@@ -21,7 +21,8 @@ class InputHandler {
     var mouseScroll = Point.zero
     
     var touchLocation: CGPoint?
-    var hoverLocation: CGPoint?
+    var mouseLocation: CGPoint?
+    
     var touchDelta: CGSize? {
       didSet {
         touchDelta?.height *= -1

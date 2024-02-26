@@ -38,87 +38,108 @@ struct MetalView: View {
     @State private var metalView = MTKView()
     @State private var previousTranslation = CGSize.zero
     @State private var previousScroll: CGFloat = 1
-
-  var body: some View {
-    VStack {
-      MetalViewRepresentable(
-        renderer: renderer,
-        metalView: $metalView)
-        .onAppear {
-          renderer = Renderer(
-            metalView: metalView)
+    @State var isOverContentView: Bool = false
+    
+    var mouseLocation: NSPoint { NSEvent.mouseLocation }
+    
+    var body: some View {
+        VStack {
+            MetalViewRepresentable(
+                renderer: renderer,
+                metalView: $metalView)
+            .onAppear {
+                NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) {
+                    return $0
+                }
+                renderer = Renderer(metalView: metalView)
+            }
+            .gesture(DragGesture(minimumDistance: 0)
+                .onChanged { value in
+                    InputHandler.shared.touchLocation = value.location
+                    InputHandler.shared.touchDelta = CGSize(
+                        width: value.translation.width - previousTranslation.width,
+                        height: value.translation.height - previousTranslation.height)
+                    previousTranslation = value.translation
+                    // if the user drags, cancel the tap touch
+                    if abs(value.translation.width) > 1 ||
+                        abs(value.translation.height) > 1 {
+                        InputHandler.shared.touchLocation = nil
+                    }
+                }
+                .onEnded {_ in
+                    previousTranslation = .zero
+                }
+            )
+            .gesture(MagnificationGesture()
+                .onChanged { value in
+                    let scroll = value - previousScroll
+                    InputHandler.shared.mouseScroll.x = Float(scroll)
+                    * Settings.touchZoomSensitivity
+                    previousScroll = value
+                }
+                .onEnded {_ in
+                    previousScroll = 1
+                }
+            )
+            .onHover{ on in
+                isOverContentView = on
+            }
         }
-        .gesture(DragGesture(minimumDistance: 0)
-        .onChanged { value in
-          InputHandler.shared.touchLocation = value.location
-          InputHandler.shared.touchDelta = CGSize(
-            width: value.translation.width - previousTranslation.width,
-            height: value.translation.height - previousTranslation.height)
-          previousTranslation = value.translation
-          // if the user drags, cancel the tap touch
-          if abs(value.translation.width) > 1 ||
-            abs(value.translation.height) > 1 {
-            InputHandler.shared.touchLocation = nil
-          }
-        }
-        .onEnded {_ in
-          previousTranslation = .zero
-        })
-        .gesture(MagnificationGesture()
-        .onChanged { value in
-          let scroll = value - previousScroll
-          InputHandler.shared.mouseScroll.x = Float(scroll)
-            * Settings.touchZoomSensitivity
-          previousScroll = value
-        }
-        .onEnded {_ in
-          previousScroll = 1
-        })
     }
-  }
-}
-
+    
+    func handleMouseMove(_ event: NSEvent) {
+            guard isOverContentView else { return }
+            
+            let locationInView = event.locationInWindow
+            let locationInMetalView = metalView.convert(locationInView, from: nil)
+            
+            // Perform picking based on locationInMetalView
+            // Example: pass the location to your Renderer for picking
+            //renderer?.performPicking(at: locationInMetalView)
+        }
+    
 #if os(macOS)
-typealias ViewRepresentable = NSViewRepresentable
-typealias MyMetalView = NSView
+    typealias ViewRepresentable = NSViewRepresentable
+    typealias MyMetalView = NSView
 #elseif os(iOS)
-typealias ViewRepresentable = UIViewRepresentable
-typealias MyMetalView = UIView
+    typealias ViewRepresentable = UIViewRepresentable
+    typealias MyMetalView = UIView
 #endif
-
-struct MetalViewRepresentable: ViewRepresentable {
-  let renderer: Renderer?
-  @Binding var metalView: MTKView
-
-  #if os(macOS)
-  func makeNSView(context: Context) -> some NSView {
-    metalView
-  }
-  func updateNSView(_ uiView: NSViewType, context: Context) {
-    updateMetalView()
-  }
-  #elseif os(iOS)
-  func makeUIView(context: Context) -> MTKView {
-    metalView
-  }
-
-  func updateUIView(_ uiView: MTKView, context: Context) {
-    updateMetalView()
-  }
-  #endif
-
-  func makeMetalView(_ metalView: MyMetalView) {
-  }
-
-  func updateMetalView() {
-  }
-}
-
-struct MetalView_Previews: PreviewProvider {
-  static var previews: some View {
-    VStack {
-      MetalView()
-      Text("Metal View")
+    
+    struct MetalViewRepresentable: ViewRepresentable {
+        let renderer: Renderer?
+        @Binding var metalView: MTKView
+        
+#if os(macOS)
+        func makeNSView(context: Context) -> some NSView {
+            metalView
+        }
+        func updateNSView(_ uiView: NSViewType, context: Context) {
+            updateMetalView()
+        }
+#elseif os(iOS)
+        func makeUIView(context: Context) -> MTKView {
+            metalView
+        }
+        
+        func updateUIView(_ uiView: MTKView, context: Context) {
+            updateMetalView()
+        }
+#endif
+        
+        func makeMetalView(_ metalView: MyMetalView) {
+        }
+        
+        func updateMetalView() {
+        }
     }
-  }
+    
+    struct MetalView_Previews: PreviewProvider {
+        static var previews: some View {
+            VStack {
+                MetalView()
+                Text("Metal View")
+            }
+        }
+    }
 }

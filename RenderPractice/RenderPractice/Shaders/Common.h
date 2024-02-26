@@ -53,6 +53,8 @@ typedef struct {
     uint objectId;
     uint touchX;
     uint touchY;
+    uint mouseX;
+    uint mouseY;
 } Params;
 
 typedef enum {

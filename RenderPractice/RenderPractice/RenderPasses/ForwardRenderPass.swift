@@ -76,7 +76,10 @@ struct ForwardRenderPass: RenderPass {
     var params = params
     params.touchX = UInt32(input.touchLocation?.x ?? 0)
     params.touchY = UInt32(input.touchLocation?.y ?? 0)
-
+      
+    params.mouseX = UInt32(input.mouseLocation?.x ?? 0)
+    params.mouseY = UInt32(input.mouseLocation?.y ?? 0)
+      
     for model in scene.models {
       model.Render(
         encoder: renderEncoder,
