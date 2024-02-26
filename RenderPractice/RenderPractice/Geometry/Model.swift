@@ -36,10 +36,12 @@ class Model: Transformable {
     
     var transform: Transform
     var tiling: uint32
+    var objectID: UInt32
     
     init(name: String,
          transform: Transform = Transform(),
-         tiling: UInt32 = 1) {
+         tiling: UInt32 = 1,
+         objectID: UInt32 = 0) {
         let descriptor = MDLVertexDescriptor.defaultLayout
         let modelURL = Bundle.main.url(forResource: name, withExtension: "obj")!
         let allocator = MTKMeshBufferAllocator(device: Renderer.device)
@@ -58,6 +60,7 @@ class Model: Transformable {
         
         self.transform = transform
         self.tiling = tiling
+        self.objectID = objectID
         
         let mdlMeshes = asset.childObjects(of: MDLMesh.self) as? [MDLMesh] ?? []
         mdlMeshes.forEach { mdlMesh in mdlMesh.addTangentBasis(
@@ -65,7 +68,6 @@ class Model: Transformable {
             tangentAttributeNamed: MDLVertexAttributeTangent,
             bitangentAttributeNamed: MDLVertexAttributeBitangent)
         }
-        
     }
     
     func BindTexture(textureName: String,
@@ -116,6 +118,7 @@ class Model: Transformable {
         uniforms.normalMatrix = uniforms.modelMatrix.upperLeft
         
         params.tiling = tiling
+        params.objectId = objectID
         
         encoder.setVertexBytes(&uniforms,
                                length: MemoryLayout<Uniforms>.stride,
