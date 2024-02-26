@@ -98,6 +98,8 @@ fragment float4 fragment_PBR(
   // extract ambient occlusion
   if (!is_null_texture(aoTexture)) {
     material.ambientOcclusion = aoTexture.sample(textureSampler, in.uv).r;
+  } else {
+      material.ambientOcclusion = float(1);
   }
 
   // normal map
@@ -134,7 +136,7 @@ fragment float4 fragment_PBR(
       normal,
       lightDirection);
 
-  return float4(diffuseColor + specularColor, 1);
+    return float4(diffuseColor + specularColor, 1);
 }
 
 float G1V(float nDotV, float k)
@@ -174,7 +176,7 @@ float3 computeSpecular(
   float k = alpha / 2.0f;
   vis = G1V(nDotL, k) * G1V(nDotV, k);
   
-  float3 specular = nDotL * D * F * vis;
+    float3 specular = nDotL * D * F * vis;
   return specular;
 }
 
@@ -185,7 +187,6 @@ float3 computeDiffuse(
   float3 lightDirection)
 {
   float nDotL = saturate(dot(normal, lightDirection));
-  float3 diffuse = float3(((1.0/pi) * material.baseColor) * (1.0 - material.metallic));
-  diffuse = float3(material.baseColor) * (1.0 - material.metallic);
+    float3 diffuse = float3(((1.0/pi) * material.baseColor) * (1.0 - material.metallic));
     return diffuse * nDotL * material.ambientOcclusion; //ambient occlusion causes models to be grey
 }

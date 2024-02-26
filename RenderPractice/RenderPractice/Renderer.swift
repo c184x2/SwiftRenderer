@@ -17,7 +17,11 @@ class Renderer: NSObject, MTKViewDelegate {
     var lastTime: Double = CFAbsoluteTimeGetCurrent()
     var uniforms = Uniforms()
     var params = Params()
+    
     lazy var scene = MyScene()
+    
+    var objectIdRenderPass: ObjectIdRenderPass
+    var forwardRenderPass: ForwardRenderPass
     
     init(metalView: MTKView) {
         guard
@@ -29,31 +33,11 @@ class Renderer: NSObject, MTKViewDelegate {
         Renderer.commandQueue = commandQueue
         metalView.device = device
         
-        // create the shader function library
         let library = device.makeDefaultLibrary()
         Self.library = library
-        let vertexFunction = library?.makeFunction(name: "vertex_main")
-        let fragmentFunction = library?.makeFunction(name: "fragment_PBR")
         
-        // depthstencil descriptor
-        let depthStencilDescriptor = MTLDepthStencilDescriptor()
-        depthStencilDescriptor.depthCompareFunction = .less
-        depthStencilDescriptor.isDepthWriteEnabled = true
-        depthStencilState = device.makeDepthStencilState(descriptor: depthStencilDescriptor)
-        
-        // create the pipeline state
-        let pipelineDescriptor = MTLRenderPipelineDescriptor()
-        pipelineDescriptor.vertexFunction = vertexFunction
-        pipelineDescriptor.fragmentFunction = fragmentFunction
-        pipelineDescriptor.colorAttachments[0].pixelFormat =
-        metalView.colorPixelFormat
-        pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
-        do {
-            pipelineDescriptor.vertexDescriptor = MTLVertexDescriptor.defaultlayout
-            pipelineState = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
-        } catch let error {
-            fatalError(error.localizedDescription)
-        }
+        forwardRenderPass = ForwardRenderPass(view: metalView)
+        objectIdRenderPass = ObjectIdRenderPass()
         
         super.init()
         metalView.clearColor = MTLClearColor(
@@ -73,49 +57,53 @@ extension Renderer {
         _ view: MTKView,
         drawableSizeWillChange size: CGSize
     ) {
+        forwardRenderPass.resize(view: view, size: size)
+        objectIdRenderPass.resize(view: view, size: size)
+    }
+    
+    func updateUniforms(scene: MyScene) {
+        let currentTime = CFAbsoluteTimeGetCurrent()
+        let deltaTime = Float(currentTime - lastTime)
+        lastTime = currentTime
+        
+        var lights = scene.lighting.lights
+        
+        scene.camera.update(deltaTime: deltaTime)
+        uniforms.viewMatrix = scene.camera.viewMatrix
+        uniforms.projectionMatrix = scene.camera.projectionMatrix
+        params.lightCount = UInt32(scene.lighting.lights.count)
+        params.cameraPosition = scene.camera.position
     }
     
     func draw(in view: MTKView) {
         
         guard
             let commandBuffer = Renderer.commandQueue.makeCommandBuffer(),
-            let descriptor = view.currentRenderPassDescriptor,
-            let renderEncoder =
-                commandBuffer.makeRenderCommandEncoder(
-                    descriptor: descriptor) else {
+            let descriptor = view.currentRenderPassDescriptor else {
             return
         }
         
-        let currentTime = CFAbsoluteTimeGetCurrent()
-        let deltaTime = Float(currentTime - lastTime)
-        lastTime = currentTime
+        updateUniforms(scene: scene)
         
-        scene.camera.update(deltaTime: deltaTime)
-        uniforms.viewMatrix = scene.camera.viewMatrix
-        uniforms.projectionMatrix = scene.camera.projectionMatrix
-        params.lightCount = UInt32(scene.lighting.lights.count)
+        objectIdRenderPass.draw(
+          commandBuffer: commandBuffer,
+          scene: scene,
+          uniforms: uniforms,
+          params: params)
         
-        renderEncoder.setDepthStencilState(depthStencilState)
-        renderEncoder.setRenderPipelineState(pipelineState)
+        forwardRenderPass.idTexture = objectIdRenderPass.idTexture
+        forwardRenderPass.descriptor = descriptor
         
-        var lights = scene.lighting.lights
+        forwardRenderPass.draw(
+          commandBuffer: commandBuffer,
+          scene: scene,
+          uniforms: uniforms,
+          params: params)
         
-        renderEncoder.setFragmentBytes(
-          &lights,
-          length: MemoryLayout<Light>.stride * lights.count,
-          index: 13)
-        
-        for model in scene.models {
-            model.Render(encoder: renderEncoder,
-                         uniforms: uniforms,
-                         params: params,
-                         vertexDescriptor: MDLVertexDescriptor.defaultLayout)
+        guard let drawable = view.currentDrawable else {
+            return
         }
-        
-        renderEncoder.endEncoding()
-        if let drawable = view.currentDrawable {
-            commandBuffer.present(drawable)
-        }
+        commandBuffer.present(drawable)
         commandBuffer.commit()
     }
 }

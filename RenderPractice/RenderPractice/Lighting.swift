@@ -20,7 +20,7 @@ struct Lighting {
     
     let sunlight: Light = {
         var light = Self.DefaultLight()
-        light.position = [20, 20, -20]
+        light.position = [10, 10, -10]
         return light
     }()
     
@@ -35,7 +35,7 @@ struct Lighting {
     
     let ambientLight: Light = {
         var light = Self.DefaultLight()
-        light.color = [0.1, 0.1, 0.1]
+        light.color = [0.05, 0.05, 0.05]
         light.type = Ambient
         return light
     }()
@@ -45,6 +45,6 @@ struct Lighting {
     init() {
         lights.append(sunlight)
         lights.append(ambientLight)
-        lights.append(redLight)
+        //lights.append(redLight)
     }
 }

@@ -48,7 +48,7 @@ class MyScene {
     
     lazy var cube: Model = {
         let model = Model(name: "cube",
-                          transform: Transform(position: float3(0, 0, 0), scale: 1.0),
+                          transform: Transform(position: float3(0, 1.05, 0), scale: 1.0),
                           tiling: 1)
         model.BindTexture(textureName: "cube-color", materialType: .baseColor)
         model.BindTexture(textureName: "cube-normal", materialType: .normal)

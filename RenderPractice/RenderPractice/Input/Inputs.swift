@@ -20,6 +20,17 @@ class InputHandler {
     var mouseDelta = Point.zero
     var mouseScroll = Point.zero
     
+    var touchLocation: CGPoint?
+    var touchDelta: CGSize? {
+      didSet {
+        touchDelta?.height *= -1
+        if let delta = touchDelta {
+          mouseDelta = Point(x: Float(delta.width), y: Float(delta.height))
+        }
+        leftMouseDown = touchDelta != nil
+      }
+    }
+    
     private init() {
         let center = NotificationCenter.default
         center.addObserver(forName: .GCMouseDidConnect,

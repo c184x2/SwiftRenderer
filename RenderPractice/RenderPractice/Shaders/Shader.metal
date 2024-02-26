@@ -48,7 +48,8 @@ fragment float4 fragment_main(
                               constant Light *lights [[buffer(LightBuffer)]],
                               constant Material &_material [[buffer(MaterialBuffer)]],
                               texture2d<float> baseColorTexture [[texture(BaseColor)]],
-                              texture2d<float> normalTexture [[texture(NormalTexture)]])
+                              texture2d<float> normalTexture [[texture(NormalTexture)]],
+                              texture2d<uint> idTexture [[texture(11)]])
 {
     Material material = _material;
     constexpr sampler textureSampler(
@@ -61,6 +62,14 @@ fragment float4 fragment_main(
       material.baseColor = baseColorTexture.sample(
       textureSampler,
       in.uv * params.tiling).rgb;
+    }
+    
+    if (!is_null_texture(idTexture)) {
+      uint2 coord = uint2(params.touchX * 2, params.touchY * 2);
+      uint objectID = idTexture.read(coord).r;
+      if (params.objectId != 0 && objectID == params.objectId) {
+        material.baseColor = float3(0.9, 0.5, 0);
+      }
     }
     
     float3 normal;

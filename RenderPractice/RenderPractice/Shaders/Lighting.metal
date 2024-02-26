@@ -46,7 +46,7 @@ float3 phongLighting(float3 normal,
     float3 materialSpecularColor = material.specularColor;
     
     if(!material.shininess) {
-        materialShininess = 32.0;
+        materialShininess = 35.0;
     }
     
     if (all(material.specularColor == float3(0.0))) {
@@ -68,8 +68,7 @@ float3 phongLighting(float3 normal,
                 if (diffuseIntensity > 0) {
                     float3 reflection = reflect(lightDirection, normal);
                     float3 viewDirection = normalize(params.cameraPosition);
-                    float specularIntensity = pow(saturate(dot(reflection, viewDirection)),
-                                                  materialShininess);
+                    float specularIntensity = pow(saturate(dot(reflection, viewDirection)), materialShininess);
                     specularColor += light.specularColor * materialSpecularColor * specularIntensity;
                 }
                 break;

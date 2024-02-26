@@ -8,8 +8,8 @@
 import MetalKit
 
 extension MTLVertexDescriptor {
-    static var defaultlayout: MTLVertexDescriptor {
-        MTKMetalVertexDescriptorFromModelIO(.defaultLayout)!
+    static var defaultLayout: MTLVertexDescriptor? {
+        MTKMetalVertexDescriptorFromModelIO(.defaultLayout)
     }
 }
 
@@ -61,7 +61,7 @@ extension MDLVertexDescriptor {
             bufferIndex: 4)
         vertexDescriptor.layouts[4]
         = MDLVertexBufferLayout(stride: MemoryLayout<float3>.stride)
-
+        
         return vertexDescriptor
     }()
 }
