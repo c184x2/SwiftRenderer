@@ -145,6 +145,7 @@
 				A93706042B6EDA9D00D2D011 /* Renderer.swift */,
 				A993614A2B8211DC00867E50 /* Scene.swift */,
 				A97540EC2B825ADC00E98145 /* Lighting.swift */,
+				A994F4BB2B800510005AB8CA /* Camera.swift */,
 				A93705FE2B6EDA7700D2D011 /* RenderPractice.entitlements */,
 				A93705F92B6EDA7700D2D011 /* Assets.xcassets */,
 				A95046322B8B71D500BBAED1 /* RenderPasses */,
@@ -246,7 +247,6 @@
 			children = (
 				A93705F72B6EDA7300D2D011 /* ContentView.swift */,
 				A92D82092B77B0C0003675BB /* MetalView.swift */,
-				A994F4BB2B800510005AB8CA /* Camera.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

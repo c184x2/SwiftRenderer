@@ -38,7 +38,8 @@ struct MetalView: View {
     @State private var metalView = MTKView()
     @State private var previousTranslation = CGSize.zero
     @State private var previousScroll: CGFloat = 1
-    @State var isOverContentView: Bool = false
+    @State private var isOverContentView: Bool = false
+    @State private var timer: Timer?
     
     var mouseLocation: NSPoint { NSEvent.mouseLocation }
     
@@ -48,10 +49,25 @@ struct MetalView: View {
                 renderer: renderer,
                 metalView: $metalView)
             .onAppear {
-                NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) {
-                    return $0
+                NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) { event in
+                    self.handleMouseMove(event)
+                    return event
                 }
                 renderer = Renderer(metalView: metalView)
+                
+                // Start a timer to update mouse location at regular intervals (e.g., every 0.1 seconds)
+                self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+                    guard let currentEvent = NSEvent.mouseEvent(with: .mouseMoved,
+                                                                location: NSEvent.mouseLocation,
+                                                                modifierFlags: [],
+                                                                timestamp: 0,
+                                                                windowNumber: 0,
+                                                                context: nil,
+                                                                eventNumber: 0,
+                                                                clickCount: 0,
+                                                                pressure: 0) else { return }
+                    self.handleMouseMove(currentEvent)
+                }
             }
             .gesture(DragGesture(minimumDistance: 0)
                 .onChanged { value in
@@ -88,58 +104,64 @@ struct MetalView: View {
     }
     
     func handleMouseMove(_ event: NSEvent) {
-            guard isOverContentView else { return }
-            
-            let locationInView = event.locationInWindow
-            let locationInMetalView = metalView.convert(locationInView, from: nil)
-            
-            // Perform picking based on locationInMetalView
-            // Example: pass the location to your Renderer for picking
-            //renderer?.performPicking(at: locationInMetalView)
+        guard isOverContentView else { return }
+        
+        let locationInView = event.locationInWindow
+        let locationInViewCGPoint = NSPointToCGPoint(locationInView)
+        let locationInMetalViewCGPoint = metalView.convert(locationInViewCGPoint, from: nil)
+        
+        let locationInMetalViewCorrect = CGPoint(x: locationInMetalViewCGPoint.x,
+                                                 y: -1 * (locationInMetalViewCGPoint.y - 600))
+        if (isOverContentView) {
+            InputHandler.shared.mouseLocation = locationInMetalViewCorrect
         }
+        print(locationInMetalViewCorrect)
+        print(InputHandler.shared.touchLocation)
+    }
+}
+
+
+#if os(macOS)
+typealias ViewRepresentable = NSViewRepresentable
+typealias MyMetalView = NSView
+#elseif os(iOS)
+typealias ViewRepresentable = UIViewRepresentable
+typealias MyMetalView = UIView
+#endif
+
+struct MetalViewRepresentable: ViewRepresentable {
+    let renderer: Renderer?
+    @Binding var metalView: MTKView
     
 #if os(macOS)
-    typealias ViewRepresentable = NSViewRepresentable
-    typealias MyMetalView = NSView
+    func makeNSView(context: Context) -> some NSView {
+        metalView
+    }
+    func updateNSView(_ uiView: NSViewType, context: Context) {
+        updateMetalView()
+    }
 #elseif os(iOS)
-    typealias ViewRepresentable = UIViewRepresentable
-    typealias MyMetalView = UIView
-#endif
-    
-    struct MetalViewRepresentable: ViewRepresentable {
-        let renderer: Renderer?
-        @Binding var metalView: MTKView
-        
-#if os(macOS)
-        func makeNSView(context: Context) -> some NSView {
-            metalView
-        }
-        func updateNSView(_ uiView: NSViewType, context: Context) {
-            updateMetalView()
-        }
-#elseif os(iOS)
-        func makeUIView(context: Context) -> MTKView {
-            metalView
-        }
-        
-        func updateUIView(_ uiView: MTKView, context: Context) {
-            updateMetalView()
-        }
-#endif
-        
-        func makeMetalView(_ metalView: MyMetalView) {
-        }
-        
-        func updateMetalView() {
-        }
+    func makeUIView(context: Context) -> MTKView {
+        metalView
     }
     
-    struct MetalView_Previews: PreviewProvider {
-        static var previews: some View {
-            VStack {
-                MetalView()
-                Text("Metal View")
-            }
+    func updateUIView(_ uiView: MTKView, context: Context) {
+        updateMetalView()
+    }
+#endif
+    
+    func makeMetalView(_ metalView: MyMetalView) {
+    }
+    
+    func updateMetalView() {
+    }
+}
+
+struct MetalView_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            MetalView()
+            Text("Metal View")
         }
     }
 }
